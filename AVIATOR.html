@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOT AVIATO 1.0</title>
+    <style>
+        :root {
+            --primary-color: #e60000;
+            --secondary-color: #111;
+            --highlight-color: #00ffcc;
+            --accent-color: #ffcc00;
+            --bg-dark: #000000;
+            --text-light: #ffffff;
+            --text-success: #00ff00;
+            --text-warning: #ff9900;
+        }body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+        color: var(--text-light);
+    }
+
+    header {
+        background: var(--primary-color);
+        padding: 20px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        text-shadow: 1px 1px 5px black;
+    }
+
+    .ticker {
+        display: flex;
+        white-space: nowrap;
+        overflow: hidden;
+        background: var(--secondary-color);
+        padding: 10px;
+    }
+
+    .ticker-item {
+        padding: 0 30px;
+        color: var(--text-success);
+        animation: scroll 30s linear infinite;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+
+    .content {
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .btn {
+        background: var(--primary-color);
+        color: var(--text-light);
+        padding: 18px 35px;
+        font-size: 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        animation: pulse 2s infinite;
+        transition: background 0.3s;
+    }
+
+    .btn:hover {
+        background: var(--accent-color);
+        color: #000;
+    }
+
+    @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.7; }
+        100% { opacity: 1; }
+    }
+
+    .pre-loading, .loading {
+        color: var(--highlight-color);
+        margin-top: 20px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .result {
+        display: none;
+        margin-top: 30px;
+        background: linear-gradient(to bottom, #330000, #660000);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px red;
+    }
+
+    .valor-bloco {
+        background: #000;
+        border: 3px solid var(--primary-color);
+        padding: 25px;
+        margin-bottom: 20px;
+        font-size: 42px;
+        color: var(--text-success);
+        font-weight: bold;
+        border-radius: 12px;
+        box-shadow: inset 0 0 15px red;
+    }
+
+    iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+        margin-top: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ff0000;
+    }
+
+    footer {
+        margin-top: 50px;
+        text-align: center;
+        padding: 30px 20px;
+        background: #1a1a1a;
+    }
+
+    .support-button {
+        background: var(--highlight-color);
+        color: #000;
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 15px;
+        box-shadow: 0 0 12px var(--highlight-color);
+    }
+
+    .copyright {
+        color: var(--accent-color);
+        font-size: 16px;
+        font-weight: bold;
+    }
+</style>
+
+</head>
+<body>
+    <header>BOT AVIATO 1.0</header><div class="ticker" id="ticker"></div>
+
+<div class="content">
+    <div style="font-size: 20px; font-weight: bold; color: var(--text-light);">ATÉ 1 GALE</div>
+    <div class="pre-loading" id="preLoading">AGUARDE <span id="countdown">10</span> SEGUNDOS...</div>
+    <button class="btn" id="botaoBusca" onclick="buscarOportunidade()" style="display:none">BUSCAR OPORTUNIDADE</button>
+    <div class="loading" id="loading" style="display:none">IDENTIFICANDO A OPORTUNIDADE...</div>
+
+    <div class="result" id="resultado">
+        <div class="valor-bloco">SAIA ATÉ: <span id="valor"></span></div>
+        <p><strong>ASSERTIVIDADE:</strong> <span id="assertividade"></span>%</p>
+    </div>
+
+    <iframe id="paginaAposta" src="https://apostaganha.bet.br/?affid=71249&cxd=71249_450335&utm_source=google-search&utm_medium=cpa&utm_campaign=alwayson_x&utm_content=google-search_institucional_x_retencao_alwayson_conversao_cpa_x_pe_x_pe_keywords_corresp-frase_institucional_marca_71249&utm_term=%7Bmatchtype%7D_%7Bkeyword%7D&gad_source=1&gad_campaignid=22318240931&gclid=Cj0KCQjw2tHABhCiARIsANZzDWr0a8vuNb_45ONVAy1T2oSFUr6I5GMBFTmH9kWp7PtzlMiXJ_CHyowaAlElEALw_wcB"></iframe>
+</div>
+
+<footer>
+    <a href="https://t.me/SURPOTE_DOUBLE" target="_blank" class="support-button">SUPORTE</a>
+    <div class="copyright">Copyright © 2025 todos os direitos reservados Leonardo</div>
+</footer>
+
+<script>
+    const nomes = ["João", "Maria", "Pedro", "Laura", "Lucas", "Fernanda", "Ana", "Carlos", "Juliana", "Bruno", "Rafael", "Camila", "Igor", "Patrícia", "André", "Bianca", "Renan", "Viviane", "Eduardo", "Natália"];
+
+    function gerarTickerItems() {
+        let container = document.getElementById('ticker');
+        for (let i = 0; i < 150; i++) {
+            const nome = nomes[Math.floor(Math.random() * nomes.length)];
+            const valor = (Math.random() * 200 + 10).toFixed(2);
+            let div = document.createElement('div');
+            div.className = 'ticker-item';
+            div.innerText = `${nome} ganhou + R$ ${valor}`;
+            container.appendChild(div);
+        }
+    }
+
+    function iniciarContagem(callback) {
+        let segundos = 10;
+        document.getElementById('preLoading').style.display = 'block';
+        document.getElementById('botaoBusca').style.display = 'none';
+        let countdownEl = document.getElementById('countdown');
+        countdownEl.textContent = segundos;
+        let intervalo = setInterval(() => {
+            segundos--;
+            countdownEl.textContent = segundos;
+            if (segundos === 0) {
+                clearInterval(intervalo);
+                document.getElementById('preLoading').style.display = 'none';
+                document.getElementById('botaoBusca').style.display = 'inline-block';
+                if (callback) callback();
+            }
+        }, 1000);
+    }
+
+    function buscarOportunidade() {
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('resultado').style.display = 'none';
+        document.getElementById('botaoBusca').disabled = true;
+
+        setTimeout(() => {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('resultado').style.display = 'block';
+            document.getElementById('botaoBusca').disabled = false;
+
+            let valor = gerarValorPonderado(1.05, 5.0);
+            const assertividade = calcularAssertividade(valor);
+
+            document.getElementById('valor').innerText = valor;
+            document.getElementById('assertividade').innerText = assertividade;
+
+            iniciarContagem();
+        }, 3000);
+    }
+
+    function gerarValorPonderado(min, max) {
+        const peso = Math.pow(Math.random(), 3);
+        return (min + (max - min) * peso).toFixed(2);
+    }
+
+    function calcularAssertividade(valor) {
+        valor = parseFloat(valor);
+        let assertividade = 100 - (valor - 1.0) * 15;
+        if (assertividade < 10) assertividade = 10;
+        return assertividade.toFixed(2);
+    }
+
+    gerarTickerItems();
+    iniciarContagem();
+</script>
+
+</body>
+</html>
