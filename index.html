@@ -191,12 +191,6 @@
       padding: 30px 20px;
       background: #1a1a1a;
     }
-
-    .copyright {
-      color: var(--accent-color);
-      font-size: 16px;
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
@@ -228,7 +222,6 @@
       <p><strong>ASSERTIVIDADE:</strong> <span id="assertividade"></span>%</p>
     </div>
 
-    <!-- NOVO LINK DO IFRAME COM ALTURA MAIOR -->
     <iframe id="paginaAposta" 
       src="https://betao.bet.br/pb/?utm_source=google&utm_medium=cpc&utm_campaign=22250277078&utm_term=blaze&utm_content=173894754406&gad_source=1&gad_campaignid=22250277078&gclid=Cj0KCQjw2tHABhCiARIsANZzDWrsj_OusGrCIYqxgnXUbBF7nWltfU9StslSLWj3Ne693PrlW6o_khAaAmnBEALw_wcB" 
       loading="lazy">
@@ -237,7 +230,9 @@
 
   <footer>
     <a href="https://t.me/SURPOTE_DOUBLE" target="_blank" class="support-button">SUPORTE</a>
-    <div class="copyright">Copyright © 2025 todos os direitos reservados Leonardo</div>
+    <div id="historicoGerado" style="margin-top: 20px; color: var(--accent-color); font-weight: bold; font-size: 18px;">
+      Histórico:
+    </div>
   </footer>
 </div>
 
@@ -264,6 +259,7 @@
 
   function gerarTickerItems() {
     let container = document.getElementById('ticker');
+    container.innerHTML = '';
     for (let i = 0; i < 150; i++) {
       const nome = nomes[Math.floor(Math.random() * nomes.length)];
       const valor = (Math.random() * 200 + 10).toFixed(2);
@@ -307,6 +303,12 @@
 
       document.getElementById('valor').innerText = valor;
       document.getElementById('assertividade').innerText = assertividade;
+
+      // Adiciona ao histórico
+      const historicoEl = document.getElementById('historicoGerado');
+      const item = document.createElement('div');
+      item.innerText = `Gerou: ${valor}`;
+      historicoEl.appendChild(item);
 
       iniciarContagem();
     }, 3000);
